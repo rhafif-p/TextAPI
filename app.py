@@ -26,6 +26,10 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 model = joblib.load('model/model.sav')
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Hello"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
